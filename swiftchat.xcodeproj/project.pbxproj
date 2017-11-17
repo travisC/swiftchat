@@ -14,6 +14,11 @@
 		1FB206421FBE75D600134EB2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1FB206411FBE75D600134EB2 /* Assets.xcassets */; };
 		1FB206451FBE75D600134EB2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1FB206431FBE75D600134EB2 /* LaunchScreen.storyboard */; };
 		1FB2064D1FBE769A00134EB2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1FB2064C1FBE769A00134EB2 /* GoogleService-Info.plist */; };
+		1FB206501FBF466000134EB2 /* ProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB2064F1FBF466000134EB2 /* ProfileTableViewController.swift */; };
+		1FB206521FBF46DD00134EB2 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB206511FBF46DD00134EB2 /* ChatViewController.swift */; };
+		1FB206541FBF471F00134EB2 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB206531FBF471F00134EB2 /* SettingsViewController.swift */; };
+		1FB206561FBF8F9C00134EB2 /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB206551FBF8F9C00134EB2 /* FirebaseManager.swift */; };
+		1FB206581FBFA31400134EB2 /* PostManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB206571FBFA31400134EB2 /* PostManager.swift */; };
 		D7DD5B0E555C2397C0423896 /* Pods_swiftchat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A6992C2E3816CF17C91CF2D /* Pods_swiftchat.framework */; };
 /* End PBXBuildFile section */
 
@@ -28,6 +33,11 @@
 		1FB206461FBE75D600134EB2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1FB2064C1FBE769A00134EB2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		1FB2064E1FBE78CA00134EB2 /* swiftchat.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = swiftchat.entitlements; sourceTree = "<group>"; };
+		1FB2064F1FBF466000134EB2 /* ProfileTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewController.swift; sourceTree = "<group>"; };
+		1FB206511FBF46DD00134EB2 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
+		1FB206531FBF471F00134EB2 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		1FB206551FBF8F9C00134EB2 /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
+		1FB206571FBFA31400134EB2 /* PostManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostManager.swift; sourceTree = "<group>"; };
 		76A05118F999929673B932CF /* Pods-swiftchat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-swiftchat.debug.xcconfig"; path = "Pods/Target Support Files/Pods-swiftchat/Pods-swiftchat.debug.xcconfig"; sourceTree = "<group>"; };
 		7A6992C2E3816CF17C91CF2D /* Pods_swiftchat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_swiftchat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		963F1DF709D77D795178DF1E /* Pods-swiftchat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-swiftchat.release.xcconfig"; path = "Pods/Target Support Files/Pods-swiftchat/Pods-swiftchat.release.xcconfig"; sourceTree = "<group>"; };
@@ -78,12 +88,17 @@
 				1FB2064E1FBE78CA00134EB2 /* swiftchat.entitlements */,
 				1FB206371FBE75D600134EB2 /* AppDelegate.swift */,
 				1FB206391FBE75D600134EB2 /* ViewController.swift */,
+				1FB2064F1FBF466000134EB2 /* ProfileTableViewController.swift */,
+				1FB206511FBF46DD00134EB2 /* ChatViewController.swift */,
+				1FB206531FBF471F00134EB2 /* SettingsViewController.swift */,
 				1FB2063B1FBE75D600134EB2 /* Main.storyboard */,
 				1FB206411FBE75D600134EB2 /* Assets.xcassets */,
 				1FB206431FBE75D600134EB2 /* LaunchScreen.storyboard */,
 				1FB206461FBE75D600134EB2 /* Info.plist */,
 				1FB2063E1FBE75D600134EB2 /* swiftchat.xcdatamodeld */,
 				1FB2064C1FBE769A00134EB2 /* GoogleService-Info.plist */,
+				1FB206551FBF8F9C00134EB2 /* FirebaseManager.swift */,
+				1FB206571FBFA31400134EB2 /* PostManager.swift */,
 			);
 			path = swiftchat;
 			sourceTree = "<group>";
@@ -195,12 +210,16 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-swiftchat/Pods-swiftchat-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -235,7 +254,12 @@
 			files = (
 				1FB2063A1FBE75D600134EB2 /* ViewController.swift in Sources */,
 				1FB206401FBE75D600134EB2 /* swiftchat.xcdatamodeld in Sources */,
+				1FB206561FBF8F9C00134EB2 /* FirebaseManager.swift in Sources */,
+				1FB206501FBF466000134EB2 /* ProfileTableViewController.swift in Sources */,
+				1FB206521FBF46DD00134EB2 /* ChatViewController.swift in Sources */,
+				1FB206581FBFA31400134EB2 /* PostManager.swift in Sources */,
 				1FB206381FBE75D600134EB2 /* AppDelegate.swift in Sources */,
+				1FB206541FBF471F00134EB2 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

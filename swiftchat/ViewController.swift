@@ -11,7 +11,14 @@ import UIKit
 class ViewController: UIViewController {
 
     @IBAction func loginButton_click(_ sender: Any) {
-        self.performSegue(withIdentifier: "showProfile", sender: sender)
+        let email = "travis@enviral.io"
+        let password = "password"
+        FirebaseManager.Login(email: email, password: password) { (success:Bool) in
+            if(success) {
+                self.performSegue(withIdentifier: "showProfile", sender: sender)
+            }
+        }
+        
     }
     
     override func viewDidLoad() {

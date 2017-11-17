@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -14,11 +13,57 @@
         <!--Chat-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController title="Chat" id="BYZ-38-t0r" customClass="ViewController" customModule="swiftchat" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Chat" id="BYZ-38-t0r" customClass="ChatViewController" customModule="swiftchat" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="yEW-ds-4bK">
+                                <rect key="frame" x="0.0" y="44" width="375" height="556"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="EdN-nk-8gf">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="EdN-nk-8gf" id="ulu-8O-MIq">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="vQC-QX-2wX"/>
+                                </connections>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fgb-gf-KVw">
+                                <rect key="frame" x="315" y="617" width="44" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="44" id="5vW-iU-8fL"/>
+                                </constraints>
+                                <state key="normal" title="Send"/>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" background="message" translatesAutoresizingMaskIntoConstraints="NO" id="Kb1-pi-lK1">
+                                <rect key="frame" x="16" y="617" width="291" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="290" id="suL-RV-Ffa"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Kb1-pi-lK1" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="0sd-Kd-iA8"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="yEW-ds-4bK" secondAttribute="bottom" constant="67" id="5bR-aR-yHR"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="top" secondItem="yEW-ds-4bK" secondAttribute="top" constant="20" id="JrX-r3-1ey"/>
+                            <constraint firstItem="fgb-gf-KVw" firstAttribute="top" secondItem="yEW-ds-4bK" secondAttribute="bottom" constant="17" id="KoP-8v-qeV"/>
+                            <constraint firstItem="fgb-gf-KVw" firstAttribute="leading" secondItem="Kb1-pi-lK1" secondAttribute="trailing" constant="8" id="N6o-Hm-QbP"/>
+                            <constraint firstItem="yEW-ds-4bK" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="WKu-lN-xAF"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="fgb-gf-KVw" secondAttribute="trailing" constant="16" id="qtD-qU-Y1U"/>
+                            <constraint firstItem="Kb1-pi-lK1" firstAttribute="top" secondItem="yEW-ds-4bK" secondAttribute="bottom" constant="17" id="rVg-yw-gfs"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="yEW-ds-4bK" secondAttribute="trailing" id="yjE-lc-x7C"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
@@ -97,17 +142,17 @@
         <!--Profile-->
         <scene sceneID="3Se-go-g6e">
             <objects>
-                <tableViewController title="Profile" id="Sok-5L-byY" sceneMemberID="viewController">
+                <tableViewController title="Profile" id="Sok-5L-byY" customClass="ProfileTableViewController" customModule="swiftchat" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="2uu-vf-jIZ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="88" id="M5m-Iz-Dew">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="cell" rowHeight="88" id="M5m-Iz-Dew">
                                 <rect key="frame" x="0.0" y="28" width="375" height="88"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="M5m-Iz-Dew" id="t6p-X4-qZ1">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="87.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="341" height="87.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="a4D-uk-Hff">
@@ -123,6 +168,9 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="show" id="Air-QM-VvF"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -145,7 +193,7 @@
         <!--Settings-->
         <scene sceneID="BCf-AU-fiD">
             <objects>
-                <viewController title="Settings" id="LNS-gv-UBp" sceneMemberID="viewController">
+                <viewController title="Settings" id="LNS-gv-UBp" customClass="SettingsViewController" customModule="swiftchat" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="WXd-YU-h7q">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -159,11 +207,11 @@
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sPN-kd-LDT">
-                                <rect key="frame" x="16" y="308" width="343" height="30"/>
+                                <rect key="frame" x="153" y="308" width="69" height="30"/>
                                 <state key="normal" title="Get Photo"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aAq-To-9yG">
-                                <rect key="frame" x="16" y="356" width="343" height="30"/>
+                                <rect key="frame" x="162" y="356" width="51" height="30"/>
                                 <state key="normal" title="Update"/>
                             </button>
                         </subviews>
@@ -171,13 +219,7 @@
                         <constraints>
                             <constraint firstItem="Yd9-Up-99e" firstAttribute="leading" secondItem="VUB-LS-mWB" secondAttribute="leading" constant="67" id="0Zc-MG-DkO"/>
                             <constraint firstItem="Yd9-Up-99e" firstAttribute="centerX" secondItem="aAq-To-9yG" secondAttribute="centerX" id="9hB-V3-Hzm"/>
-                            <constraint firstItem="VUB-LS-mWB" firstAttribute="trailing" secondItem="sPN-kd-LDT" secondAttribute="trailing" constant="16" id="Pp4-2g-01H"/>
-                            <constraint firstItem="VUB-LS-mWB" firstAttribute="trailing" secondItem="aAq-To-9yG" secondAttribute="trailing" constant="16" id="RCd-7M-7mA"/>
-                            <constraint firstItem="aAq-To-9yG" firstAttribute="leading" secondItem="sPN-kd-LDT" secondAttribute="leading" id="TWT-Po-xAq"/>
-                            <constraint firstItem="aAq-To-9yG" firstAttribute="leading" secondItem="WXd-YU-h7q" secondAttribute="leadingMargin" id="YR1-b0-zrK"/>
-                            <constraint firstItem="aAq-To-9yG" firstAttribute="leading" secondItem="VUB-LS-mWB" secondAttribute="leading" constant="16" id="bJ1-B7-nDe"/>
                             <constraint firstItem="aAq-To-9yG" firstAttribute="top" secondItem="sPN-kd-LDT" secondAttribute="bottom" constant="18" id="hNd-MC-UME"/>
-                            <constraint firstItem="sPN-kd-LDT" firstAttribute="leading" secondItem="VUB-LS-mWB" secondAttribute="leading" constant="16" id="niX-L9-Ynd"/>
                             <constraint firstItem="Yd9-Up-99e" firstAttribute="top" secondItem="VUB-LS-mWB" secondAttribute="top" constant="24" id="sTI-SH-Caj"/>
                             <constraint firstItem="sPN-kd-LDT" firstAttribute="top" secondItem="Yd9-Up-99e" secondAttribute="bottom" constant="92" id="uhI-wP-1e9"/>
                             <constraint firstItem="Yd9-Up-99e" firstAttribute="centerX" secondItem="sPN-kd-LDT" secondAttribute="centerX" id="zL3-mQ-dXr"/>
@@ -209,4 +251,7 @@
             <point key="canvasLocation" x="854" y="133"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="message" width="16" height="16"/>
+    </resources>
 </document>

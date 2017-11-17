@@ -7,5 +7,7 @@ target 'swiftchat' do
 
   # Pods for swiftchat
 	pod 'Firebase/Core'
-
+	pod 'Firebase/Database'
+	pod 'Firebase/Auth'
+	pod 'Firebase/Storage'
 end

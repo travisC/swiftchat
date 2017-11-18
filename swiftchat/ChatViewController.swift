@@ -9,6 +9,7 @@
 import UIKit
 
 class ChatViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+
     @IBOutlet var tableView: UITableView!
     
     var selectedUser:User?
@@ -50,7 +51,8 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
         messageText.delegate = self
         //cellHeight = Int(messageText.contentSize.height)
         let post = PostManager.posts[indexPath.row]
-        cell.messageText.text = post.text
+        //cell.messageText.text = post.text
+        cell.messageText.text = "Anything"
         
         return cell
     }

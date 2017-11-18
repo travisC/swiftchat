@@ -12,10 +12,9 @@ import FirebaseDatabase
 import FirebaseAuth
 
 class FirebaseManager: NSObject {
-    
     static let databaseRef = Database.database().reference()
     static var currentUserId:String = ""
-    static var currentUser:User? = nil
+    static var currentUser:FirebaseAuth.User?
 
     static func Login(email:String, password:String, completion: @escaping (_ success:Bool) -> Void) {
         Auth.auth().signIn(withEmail: email, password: password, completion: { (user, error) in
@@ -25,10 +24,8 @@ class FirebaseManager: NSObject {
             } else {
                 currentUser = user
                 currentUserId = (user?.uid)!
-                completion(true)
-            }
+                completion(true) }
         })
-    
     }
     
 }

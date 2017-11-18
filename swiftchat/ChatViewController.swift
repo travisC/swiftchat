@@ -9,16 +9,28 @@
 import UIKit
 
 class ChatViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-
+    @IBOutlet var tableView: UITableView!
+    
+    var selectedUser:User?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        PostManager.fillPosts(uid: FirebaseManager.currentUser?.uid, toId:(selectedUser?.uid)!) {  (result:String) in
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        PostManager.posts = []
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -28,18 +40,20 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 3
+        return PostManager.posts.count
     }
     
     
-     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-     let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-     
-        // Configure the cell...
-        cell.textLabel?.text = "Chat Cell Text"
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! chatTableViewCell
+        let messageText = cell.messageText!
+        messageText.delegate = self
+        //cellHeight = Int(messageText.contentSize.height)
+        let post = PostManager.posts[indexPath.row]
+        cell.messageText.text = post.text
         
         return cell
-     }
+    }
     
 
     /*
@@ -52,4 +66,8 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     */
 
+}
+
+extension ChatViewController:UITextViewDelegate {
+    
 }

@@ -22,13 +22,31 @@
                                 <rect key="frame" x="0.0" y="44" width="375" height="556"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="EdN-nk-8gf">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="EdN-nk-8gf" customClass="chatTableViewCell" customModule="swiftchat" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="EdN-nk-8gf" id="ulu-8O-MIq">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="cGv-Ix-hNK">
+                                                    <rect key="frame" x="8" y="8" width="360" height="22.5"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                </textView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="cGv-Ix-hNK" secondAttribute="bottom" constant="13" id="4v3-1M-SWe"/>
+                                                <constraint firstItem="cGv-Ix-hNK" firstAttribute="leading" secondItem="ulu-8O-MIq" secondAttribute="leading" constant="8" id="SOm-A4-lid"/>
+                                                <constraint firstAttribute="trailing" secondItem="cGv-Ix-hNK" secondAttribute="trailing" constant="7" id="bqf-0h-e0Z"/>
+                                                <constraint firstItem="cGv-Ix-hNK" firstAttribute="top" secondItem="ulu-8O-MIq" secondAttribute="top" constant="8" id="njB-kO-Mfg"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="messageText" destination="cGv-Ix-hNK" id="6MV-aA-nga"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -36,17 +54,11 @@
                                 </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fgb-gf-KVw">
-                                <rect key="frame" x="315" y="617" width="44" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="44" id="5vW-iU-8fL"/>
-                                </constraints>
+                                <rect key="frame" x="323" y="617" width="36" height="30"/>
                                 <state key="normal" title="Send"/>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" background="message" translatesAutoresizingMaskIntoConstraints="NO" id="Kb1-pi-lK1">
-                                <rect key="frame" x="16" y="617" width="291" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="290" id="suL-RV-Ffa"/>
-                                </constraints>
+                                <rect key="frame" x="16" y="617" width="299" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -66,6 +78,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="yEW-ds-4bK" id="Vkr-jQ-LGQ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -168,9 +183,6 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
-                                <connections>
-                                    <segue destination="BYZ-38-t0r" kind="show" id="Air-QM-VvF"/>
-                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -181,10 +193,13 @@
                     <navigationItem key="navigationItem" id="xUt-f4-3BF">
                         <barButtonItem key="rightBarButtonItem" title="Settings" id="Y9s-yP-UTN">
                             <connections>
-                                <segue destination="LNS-gv-UBp" kind="show" identifier="showSettings" id="oFg-kM-YXg"/>
+                                <segue destination="LNS-gv-UBp" kind="show" identifier="showSettingsView" id="oFg-kM-YXg"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="showChatView" id="xEl-ku-mqW"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GAN-4C-j9Q" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -11,6 +11,7 @@ import UIKit
 class ChatViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet var tableView: UITableView!
+    @IBOutlet var userInput: UITextField!
     
     var selectedUser:User?
     
@@ -34,6 +35,12 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
         PostManager.posts = []
     }
     
+    @IBAction func sendButton_click(_ sender: Any) {
+        PostManager.addPost(username: (selectedUser?.username)!, text: userInput.text!, toId: (selectedUser?.uid)!, fromId: (FirebaseManager.currentUser?.uid)!)
+        userInput.text = ""
+    }
+    
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
@@ -51,8 +58,7 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
         messageText.delegate = self
         //cellHeight = Int(messageText.contentSize.height)
         let post = PostManager.posts[indexPath.row]
-        //cell.messageText.text = post.text
-        cell.messageText.text = "Anything"
+        cell.messageText.text = post.text
         
         return cell
     }

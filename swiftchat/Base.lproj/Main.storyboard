@@ -57,6 +57,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fgb-gf-KVw">
                                 <rect key="frame" x="323" y="617" width="36" height="30"/>
                                 <state key="normal" title="Send"/>
+                                <connections>
+                                    <action selector="sendButton_click:" destination="BYZ-38-t0r" eventType="touchUpInside" id="wzT-Mz-Bd8"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" background="message" translatesAutoresizingMaskIntoConstraints="NO" id="Kb1-pi-lK1">
                                 <rect key="frame" x="16" y="617" width="299" height="30"/>
@@ -81,6 +84,7 @@
                     </view>
                     <connections>
                         <outlet property="tableView" destination="yEW-ds-4bK" id="ddi-JK-Pbc"/>
+                        <outlet property="userInput" destination="Kb1-pi-lK1" id="Y5y-Ik-RR9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -124,6 +128,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KL9-99-eUu">
                                 <rect key="frame" x="16" y="277" width="343" height="30"/>
                                 <state key="normal" title="Create Account"/>
+                                <connections>
+                                    <action selector="createAccountButton_click:" destination="ftX-sG-hYH" eventType="touchUpInside" id="a77-DK-coJ"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -147,6 +154,9 @@
                         <viewLayoutGuide key="safeArea" id="jrf-0o-Uxi"/>
                     </view>
                     <connections>
+                        <outlet property="email" destination="7JL-HD-Wl4" id="4js-rf-cw4"/>
+                        <outlet property="password" destination="Hyo-C8-iC4" id="PAo-11-xaN"/>
+                        <outlet property="username" destination="mZX-yM-31S" id="XuL-LM-fOQ"/>
                         <segue destination="Upz-E7-Nn4" kind="show" identifier="showProfile" id="cDM-vQ-RLO"/>
                     </connections>
                 </viewController>

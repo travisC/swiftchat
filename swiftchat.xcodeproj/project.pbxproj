@@ -22,6 +22,7 @@
 		1FB2065A1FBFBC4300134EB2 /* chatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB206591FBFBC4300134EB2 /* chatTableViewCell.swift */; };
 		1FB2065C1FBFCAD900134EB2 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB2065B1FBFCAD900134EB2 /* User.swift */; };
 		1FB2065E1FBFCE3F00134EB2 /* ProfileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB2065D1FBFCE3F00134EB2 /* ProfileManager.swift */; };
+		1FB206601FC09B1500134EB2 /* ProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB2065F1FC09B1500134EB2 /* ProfileTableViewCell.swift */; };
 		D7DD5B0E555C2397C0423896 /* Pods_swiftchat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A6992C2E3816CF17C91CF2D /* Pods_swiftchat.framework */; };
 /* End PBXBuildFile section */
 
@@ -44,6 +45,7 @@
 		1FB206591FBFBC4300134EB2 /* chatTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = chatTableViewCell.swift; sourceTree = "<group>"; };
 		1FB2065B1FBFCAD900134EB2 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		1FB2065D1FBFCE3F00134EB2 /* ProfileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileManager.swift; sourceTree = "<group>"; };
+		1FB2065F1FC09B1500134EB2 /* ProfileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewCell.swift; sourceTree = "<group>"; };
 		76A05118F999929673B932CF /* Pods-swiftchat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-swiftchat.debug.xcconfig"; path = "Pods/Target Support Files/Pods-swiftchat/Pods-swiftchat.debug.xcconfig"; sourceTree = "<group>"; };
 		7A6992C2E3816CF17C91CF2D /* Pods_swiftchat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_swiftchat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		963F1DF709D77D795178DF1E /* Pods-swiftchat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-swiftchat.release.xcconfig"; path = "Pods/Target Support Files/Pods-swiftchat/Pods-swiftchat.release.xcconfig"; sourceTree = "<group>"; };
@@ -95,6 +97,7 @@
 				1FB206371FBE75D600134EB2 /* AppDelegate.swift */,
 				1FB206391FBE75D600134EB2 /* ViewController.swift */,
 				1FB2064F1FBF466000134EB2 /* ProfileTableViewController.swift */,
+				1FB2065F1FC09B1500134EB2 /* ProfileTableViewCell.swift */,
 				1FB206531FBF471F00134EB2 /* SettingsViewController.swift */,
 				1FB206511FBF46DD00134EB2 /* ChatViewController.swift */,
 				1FB206591FBFBC4300134EB2 /* chatTableViewCell.swift */,
@@ -270,6 +273,7 @@
 				1FB2065A1FBFBC4300134EB2 /* chatTableViewCell.swift in Sources */,
 				1FB206581FBFA31400134EB2 /* PostManager.swift in Sources */,
 				1FB206381FBE75D600134EB2 /* AppDelegate.swift in Sources */,
+				1FB206601FC09B1500134EB2 /* ProfileTableViewCell.swift in Sources */,
 				1FB2065C1FBFCAD900134EB2 /* User.swift in Sources */,
 				1FB206541FBF471F00134EB2 /* SettingsViewController.swift in Sources */,
 			);

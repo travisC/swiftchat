@@ -12,6 +12,7 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
 
     @IBOutlet var tableView: UITableView!
     @IBOutlet var userInput: UITextField!
+    var cellHeight = 44
     
     var selectedUser:User?
     
@@ -19,6 +20,10 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        tableView.estimatedRowHeight = 88.0
+        tableView.rowHeight = UITableViewAutomaticDimension
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -56,7 +61,7 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! chatTableViewCell
         let messageText = cell.messageText!
         messageText.delegate = self
-        //cellHeight = Int(messageText.contentSize.height)
+        cellHeight = Int(messageText.contentSize.height)
         let post = PostManager.posts[indexPath.row]
         cell.messageText.text = post.text
         
@@ -77,5 +82,13 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
 }
 
 extension ChatViewController:UITextViewDelegate {
-    
+    func textViewDidChange(_ textView: UITextView) {
+        let currentOffset = tableView.contentOffset
+        UIView.setAnimationsEnabled(false)
+        tableView.beginUpdates()
+        tableView.endUpdates()
+        UIView.setAnimationsEnabled(true)
+        tableView.setContentOffset(currentOffset, animated: false)
+        
+    }
 }

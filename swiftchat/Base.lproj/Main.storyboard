@@ -6,7 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -182,26 +182,27 @@
                                     <rect key="frame" x="0.0" y="0.0" width="341" height="87.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="a4D-uk-Hff">
-                                            <rect key="frame" x="0.0" y="0.0" width="140" height="88"/>
-                                        </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yAF-WX-nbP">
-                                            <rect key="frame" x="155" y="34" width="177" height="20.5"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="177" id="8y0-G6-xQ9"/>
-                                            </constraints>
+                                            <rect key="frame" x="135" y="30.5" width="42" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="a4D-uk-Hff">
+                                            <rect key="frame" x="0.0" y="5" width="127" height="71.5"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="a4D-uk-Hff" secondAttribute="height" multiplier="127:71" id="Oae-Gg-yFY"/>
+                                                <constraint firstAttribute="width" constant="127" id="Pmv-7s-Xac"/>
+                                                <constraint firstAttribute="height" constant="71.5" id="aE7-Cj-QbB"/>
+                                            </constraints>
+                                        </imageView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="a4D-uk-Hff" firstAttribute="centerY" secondItem="t6p-X4-qZ1" secondAttribute="centerY" id="2zs-4B-hbL"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="yAF-WX-nbP" secondAttribute="trailing" constant="1" id="T6T-7l-qjl"/>
-                                        <constraint firstItem="a4D-uk-Hff" firstAttribute="top" secondItem="t6p-X4-qZ1" secondAttribute="top" id="ZzS-Xu-dww"/>
-                                        <constraint firstItem="a4D-uk-Hff" firstAttribute="leading" secondItem="t6p-X4-qZ1" secondAttribute="leading" id="c1r-mp-DSu"/>
-                                        <constraint firstItem="yAF-WX-nbP" firstAttribute="leading" secondItem="a4D-uk-Hff" secondAttribute="trailing" constant="15" id="dwz-9h-7Wr"/>
-                                        <constraint firstItem="a4D-uk-Hff" firstAttribute="centerY" secondItem="yAF-WX-nbP" secondAttribute="centerY" id="hyn-RW-Vi4"/>
+                                        <constraint firstItem="yAF-WX-nbP" firstAttribute="leading" secondItem="a4D-uk-Hff" secondAttribute="trailing" constant="8" id="5Bi-2Y-O6o"/>
+                                        <constraint firstItem="a4D-uk-Hff" firstAttribute="leading" secondItem="t6p-X4-qZ1" secondAttribute="leading" id="BNc-ef-ANu"/>
+                                        <constraint firstItem="yAF-WX-nbP" firstAttribute="centerY" secondItem="a4D-uk-Hff" secondAttribute="centerY" id="hjN-e8-hu4"/>
+                                        <constraint firstAttribute="bottom" secondItem="a4D-uk-Hff" secondAttribute="bottom" constant="5" id="m9Q-N2-fHj"/>
+                                        <constraint firstItem="a4D-uk-Hff" firstAttribute="top" secondItem="t6p-X4-qZ1" secondAttribute="top" constant="5" id="niW-KL-vYj"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>

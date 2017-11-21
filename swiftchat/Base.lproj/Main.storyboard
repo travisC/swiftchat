@@ -249,24 +249,43 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sPN-kd-LDT">
                                 <rect key="frame" x="153" y="308" width="69" height="30"/>
                                 <state key="normal" title="Get Photo"/>
+                                <connections>
+                                    <action selector="getPhotoButton_click:" destination="LNS-gv-UBp" eventType="touchUpInside" id="7EL-Jv-d1e"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aAq-To-9yG">
                                 <rect key="frame" x="162" y="356" width="51" height="30"/>
                                 <state key="normal" title="Update"/>
+                                <connections>
+                                    <action selector="uploadButton_click:" destination="LNS-gv-UBp" eventType="touchUpInside" id="Knt-pB-SHD"/>
+                                </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="In2-cT-VbO">
+                                <rect key="frame" x="16" y="265" width="343" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Yd9-Up-99e" firstAttribute="leading" secondItem="VUB-LS-mWB" secondAttribute="leading" constant="67" id="0Zc-MG-DkO"/>
                             <constraint firstItem="Yd9-Up-99e" firstAttribute="centerX" secondItem="aAq-To-9yG" secondAttribute="centerX" id="9hB-V3-Hzm"/>
+                            <constraint firstItem="In2-cT-VbO" firstAttribute="top" secondItem="Yd9-Up-99e" secondAttribute="bottom" constant="49" id="Qyj-mL-USb"/>
                             <constraint firstItem="aAq-To-9yG" firstAttribute="top" secondItem="sPN-kd-LDT" secondAttribute="bottom" constant="18" id="hNd-MC-UME"/>
+                            <constraint firstItem="VUB-LS-mWB" firstAttribute="trailing" secondItem="In2-cT-VbO" secondAttribute="trailing" constant="16" id="nXx-fF-we1"/>
                             <constraint firstItem="Yd9-Up-99e" firstAttribute="top" secondItem="VUB-LS-mWB" secondAttribute="top" constant="24" id="sTI-SH-Caj"/>
                             <constraint firstItem="sPN-kd-LDT" firstAttribute="top" secondItem="Yd9-Up-99e" secondAttribute="bottom" constant="92" id="uhI-wP-1e9"/>
+                            <constraint firstItem="In2-cT-VbO" firstAttribute="leading" secondItem="VUB-LS-mWB" secondAttribute="leading" constant="16" id="vc7-lZ-EmR"/>
                             <constraint firstItem="Yd9-Up-99e" firstAttribute="centerX" secondItem="sPN-kd-LDT" secondAttribute="centerX" id="zL3-mQ-dXr"/>
                             <constraint firstItem="VUB-LS-mWB" firstAttribute="trailing" secondItem="Yd9-Up-99e" secondAttribute="trailing" constant="68" id="zvS-9o-HBD"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="VUB-LS-mWB"/>
                     </view>
+                    <connections>
+                        <outlet property="displayName" destination="In2-cT-VbO" id="ZJD-kc-wZv"/>
+                        <outlet property="imageView" destination="Yd9-Up-99e" id="0ha-oC-74k"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="puw-GT-PGa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

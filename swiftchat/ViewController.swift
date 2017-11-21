@@ -13,6 +13,7 @@ class ViewController: UIViewController {
     @IBOutlet var username: UITextField!
     @IBOutlet var email: UITextField!
     @IBOutlet var password: UITextField!
+    @IBOutlet var loginButton: UIButton!
     
     @IBAction func loginButton_click(_ sender: Any) {
         FirebaseManager.Login(email: email.text!, password: password.text!) { (success:Bool) in
@@ -35,6 +36,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        RemoteConfigManager.remoteConfigInit(firstControl: self.loginButton)
     }
 
     override func didReceiveMemoryWarning() {

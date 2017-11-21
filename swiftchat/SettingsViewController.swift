@@ -11,7 +11,8 @@ import UIKit
 class SettingsViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     @IBOutlet var imageView: UIImageView!
     @IBOutlet var displayName: UILabel!
-
+    @IBOutlet var photoUpdate: UIButton!
+    
     var selectedUser:User?
     
     override func viewDidLoad() {

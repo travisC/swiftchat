@@ -156,7 +156,7 @@
                     </view>
                     <connections>
                         <outlet property="email" destination="7JL-HD-Wl4" id="4js-rf-cw4"/>
-                        <outlet property="loginButton" destination="kh5-o2-ctf" id="oO9-gq-M70"/>
+                        <outlet property="loginButton" destination="kh5-o2-ctf" id="aE0-aM-53D"/>
                         <outlet property="password" destination="Hyo-C8-iC4" id="PAo-11-xaN"/>
                         <outlet property="username" destination="mZX-yM-31S" id="XuL-LM-fOQ"/>
                         <segue destination="Upz-E7-Nn4" kind="show" identifier="showProfile" id="cDM-vQ-RLO"/>

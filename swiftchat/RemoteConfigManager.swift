@@ -11,29 +11,38 @@ import FirebaseRemoteConfig
 
 class RemoteConfigManager: NSObject {
     
-    static var remoteConfigvalues:[String:String] = [:]
+    static let interval: TimeInterval = 12
+    static var remoteConfigValues:[String:String] = [:]
+    static var controlsToUpdate:[String:NSObject] = [:]
     
-    static func remoteConfigInit(firstControl: UIButton){
+    static func remoteConfigInit(firstControl:UIButton){
+        RemoteConfigManager.controlsToUpdate["loginButton"] = firstControl
+        
         let remoteValues = RemoteConfig.remoteConfig()
-        RemoteConfigManager.remoteConfigvalues["loginButton"] = remoteValues["loginButton"].stringValue
-        RemoteConfigManager.remoteConfigvalues["PhotoButtonUpdate"] = remoteValues["PhotoButtonUpdate"].stringValue
+        RemoteConfigManager.remoteConfigValues["loginButton"] = remoteValues["loginButton"].stringValue
+        RemoteConfigManager.remoteConfigValues["PhotoButtonUpdate"] = remoteValues["PhotoButtonUpdate"].stringValue
         
         let remoteConfigDefaults:[String:NSObject] = [
             "loginButton":"login" as NSObject,
             "PhotoButtonUpdate":"update" as NSObject
         ]
-        
         RemoteConfig.remoteConfig().setDefaults(remoteConfigDefaults)
         
         //43200 = 12 hours
-        let interval: TimeInterval = 10
+        Timer.scheduledTimer(timeInterval: RemoteConfigManager.interval, target: self, selector: #selector(RemoteConfigManager.startFetching(firstControl:)), userInfo: nil, repeats: true)
         
         remoteConfigDebugMode()
-        startFetching(interval: interval, firstControl: firstControl)
+        startFetching(firstControl: firstControl)
+        
+        
     }
     
-    static func startFetching(interval:TimeInterval, firstControl:UIButton){
-        RemoteConfig.remoteConfig().fetch(withExpirationDuration: interval){
+    @objc static func startFetching(firstControl:UIButton){
+        let remoteValues = RemoteConfig.remoteConfig()
+        RemoteConfigManager.remoteConfigValues["loginButton"] = remoteValues["loginButton"].stringValue
+        RemoteConfigManager.remoteConfigValues["PhotoButtonUpdate"] = remoteValues["PhotoButtonUpdate"].stringValue
+        
+        RemoteConfig.remoteConfig().fetch(withExpirationDuration: RemoteConfigManager.interval){
             (status, error) in
             guard error == nil else {
                 print("Error fetching remote config values \(error)")
@@ -41,14 +50,15 @@ class RemoteConfigManager: NSObject {
             }
             
             RemoteConfig.remoteConfig().activateFetched()
-            print("loginButton value: \(RemoteConfigManager.remoteConfigvalues["loginButton"])")
-            firstControl.setTitle(RemoteConfigManager.remoteConfigvalues["loginButton"], for: UIControlState.normal)
+            let fc = RemoteConfigManager.controlsToUpdate["loginButton"] as! UIButton
+            print("loginButton value: \(RemoteConfigManager.remoteConfigValues["loginButton"])")
+            fc.setTitle(RemoteConfigManager.remoteConfigValues["loginButton"], for: UIControlState.normal)
         }
     }
     
-    static func remoteConfigDebugMode(){
+    static func remoteConfigDebugMode() {
         let debugSettings = RemoteConfigSettings(developerModeEnabled: true)
         RemoteConfig.remoteConfig().configSettings = debugSettings!
-        
     }
 }
+

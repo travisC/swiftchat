@@ -24,6 +24,7 @@ class SettingsViewController: UIViewController, UIImagePickerControllerDelegate,
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         displayName.text = selectedUser?.username
+        photoUpdate.setTitle(RemoteConfigManager.remoteConfigValues["PhotoButtonUpdate"], for: UIControlState.normal)
     }
 
     override func didReceiveMemoryWarning() {
